@@ -10,8 +10,6 @@
 #
 ###############################
 
-helper()
-
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -68,5 +66,16 @@ function helper {
 
 # Main script
 
+# Execute helper first to check args are correct
+# $# defined inside the helper function which will indicate the number of args provided while calling the helper function itself 
+helper
+
+# Check the return status of the helper function and exit if it failed
+if [[ $? -ne 0 ]]; then
+    echo "Error: helper function failed."
+    exit 1
+fi
+
+# Otherwise execute the subsequent cmds
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access

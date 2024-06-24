@@ -2,7 +2,7 @@
 
 ###############################
 # About: Listing Users with Read Access on a Github Repo
-# Expose: USERNAME, TOKEN for Github Account
+# Export: USERNAME, TOKEN for Github Account
 # Input: 1. repo owner
 #        2. repo name
 # 

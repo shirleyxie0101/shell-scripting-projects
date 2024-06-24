@@ -10,13 +10,13 @@
 #
 ###############################
 
-helper
+helper()
 
 # GitHub API URL
 API_URL="https://api.github.com"
 
 # GitHub username and personal access token
-# These are enbironment variables use EXPOSE to prase value on Linux terminal
+# These are enbironment variables use EXPORT to prase value on Linux terminal
 USERNAME=$username
 TOKEN=$token
 
@@ -57,9 +57,13 @@ function list_users_with_read_access {
 function helper {
     # if the list command-line argument is not equal to the expected number of arguments
     local expected_cmd_args=2
-    if [[ $# -ne $expected_cmd_args]]; then
+    if [[ $# -ne $expected_cmd_args ]]; then
         echo "please execute the script with the required cmd args"
+        return 1
     fi
+    
+    # Add the rest of the function logic here
+    echo "Function executed with correct number of arguments"
 }
 
 # Main script
